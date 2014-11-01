@@ -13,6 +13,18 @@
 		E40AA1311A05804B00B66DF3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E40AA1301A05804B00B66DF3 /* Images.xcassets */; };
 		E40AA1341A05804B00B66DF3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E40AA1321A05804B00B66DF3 /* LaunchScreen.xib */; };
 		E40AA1401A05804B00B66DF3 /* NoteDashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40AA13F1A05804B00B66DF3 /* NoteDashTests.swift */; };
+		E40AA1511A05807800B66DF3 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E40AA1501A05807800B66DF3 /* NotificationCenter.framework */; };
+		E40AA1561A05807800B66DF3 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40AA1551A05807800B66DF3 /* TodayViewController.swift */; };
+		E40AA1581A05807800B66DF3 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E40AA1571A05807800B66DF3 /* MainInterface.storyboard */; };
+		E40AA15B1A05807800B66DF3 /* NoteDashToday.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E40AA14E1A05807800B66DF3 /* NoteDashToday.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E40AA16B1A05809D00B66DF3 /* NoteDashCommon.h in Headers */ = {isa = PBXBuildFile; fileRef = E40AA16A1A05809D00B66DF3 /* NoteDashCommon.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E40AA1711A05809D00B66DF3 /* NoteDashCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E40AA1661A05809D00B66DF3 /* NoteDashCommon.framework */; };
+		E40AA17A1A05809D00B66DF3 /* NoteDashCommonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40AA1791A05809D00B66DF3 /* NoteDashCommonTests.swift */; };
+		E40AA17D1A05809D00B66DF3 /* NoteDashCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E40AA1661A05809D00B66DF3 /* NoteDashCommon.framework */; };
+		E40AA17E1A05809D00B66DF3 /* NoteDashCommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E40AA1661A05809D00B66DF3 /* NoteDashCommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E40AA1861A0580B600B66DF3 /* NoteDashCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E40AA1661A05809D00B66DF3 /* NoteDashCommon.framework */; };
+		E40AA1881A0580DC00B66DF3 /* KeyboardAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40AA1871A0580DC00B66DF3 /* KeyboardAccessoryView.swift */; };
+		E40AA18A1A05810B00B66DF3 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40AA1891A05810B00B66DF3 /* DataStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,7 +35,60 @@
 			remoteGlobalIDString = E40AA1231A05804B00B66DF3;
 			remoteInfo = NoteDash;
 		};
+		E40AA1591A05807800B66DF3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E40AA11C1A05804B00B66DF3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E40AA14D1A05807800B66DF3;
+			remoteInfo = NoteDashToday;
+		};
+		E40AA1721A05809D00B66DF3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E40AA11C1A05804B00B66DF3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E40AA1651A05809D00B66DF3;
+			remoteInfo = NoteDashCommon;
+		};
+		E40AA1741A05809D00B66DF3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E40AA11C1A05804B00B66DF3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E40AA1231A05804B00B66DF3;
+			remoteInfo = NoteDash;
+		};
+		E40AA17B1A05809D00B66DF3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E40AA11C1A05804B00B66DF3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E40AA1651A05809D00B66DF3;
+			remoteInfo = NoteDashCommon;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E40AA15F1A05807900B66DF3 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				E40AA15B1A05807800B66DF3 /* NoteDashToday.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E40AA1821A05809D00B66DF3 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E40AA17E1A05809D00B66DF3 /* NoteDashCommon.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		E40AA1241A05804B00B66DF3 /* NoteDash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteDash.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -36,6 +101,21 @@
 		E40AA1391A05804B00B66DF3 /* NoteDashTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoteDashTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E40AA13E1A05804B00B66DF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E40AA13F1A05804B00B66DF3 /* NoteDashTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDashTests.swift; sourceTree = "<group>"; };
+		E40AA1491A05805800B66DF3 /* NoteDash.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = NoteDash.entitlements; sourceTree = "<group>"; };
+		E40AA14E1A05807800B66DF3 /* NoteDashToday.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = NoteDashToday.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		E40AA1501A05807800B66DF3 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		E40AA1541A05807800B66DF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E40AA1551A05807800B66DF3 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		E40AA1571A05807800B66DF3 /* MainInterface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
+		E40AA1601A05807D00B66DF3 /* NoteDashToday.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = NoteDashToday.entitlements; sourceTree = "<group>"; };
+		E40AA1661A05809D00B66DF3 /* NoteDashCommon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NoteDashCommon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E40AA1691A05809D00B66DF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E40AA16A1A05809D00B66DF3 /* NoteDashCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoteDashCommon.h; sourceTree = "<group>"; };
+		E40AA1701A05809D00B66DF3 /* NoteDashCommonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoteDashCommonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E40AA1781A05809D00B66DF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E40AA1791A05809D00B66DF3 /* NoteDashCommonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDashCommonTests.swift; sourceTree = "<group>"; };
+		E40AA1871A0580DC00B66DF3 /* KeyboardAccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardAccessoryView.swift; sourceTree = "<group>"; };
+		E40AA1891A05810B00B66DF3 /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E40AA17D1A05809D00B66DF3 /* NoteDashCommon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,6 +131,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E40AA14B1A05807800B66DF3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E40AA1861A0580B600B66DF3 /* NoteDashCommon.framework in Frameworks */,
+				E40AA1511A05807800B66DF3 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E40AA1621A05809D00B66DF3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E40AA16D1A05809D00B66DF3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E40AA1711A05809D00B66DF3 /* NoteDashCommon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +166,10 @@
 			children = (
 				E40AA1261A05804B00B66DF3 /* NoteDash */,
 				E40AA13C1A05804B00B66DF3 /* NoteDashTests */,
+				E40AA1521A05807800B66DF3 /* NoteDashToday */,
+				E40AA1671A05809D00B66DF3 /* NoteDashCommon */,
+				E40AA1761A05809D00B66DF3 /* NoteDashCommonTests */,
+				E40AA14F1A05807800B66DF3 /* Frameworks */,
 				E40AA1251A05804B00B66DF3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -70,6 +179,9 @@
 			children = (
 				E40AA1241A05804B00B66DF3 /* NoteDash.app */,
 				E40AA1391A05804B00B66DF3 /* NoteDashTests.xctest */,
+				E40AA14E1A05807800B66DF3 /* NoteDashToday.appex */,
+				E40AA1661A05809D00B66DF3 /* NoteDashCommon.framework */,
+				E40AA1701A05809D00B66DF3 /* NoteDashCommonTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -77,12 +189,14 @@
 		E40AA1261A05804B00B66DF3 /* NoteDash */ = {
 			isa = PBXGroup;
 			children = (
+				E40AA1491A05805800B66DF3 /* NoteDash.entitlements */,
 				E40AA1291A05804B00B66DF3 /* AppDelegate.swift */,
 				E40AA12B1A05804B00B66DF3 /* ViewController.swift */,
 				E40AA12D1A05804B00B66DF3 /* Main.storyboard */,
 				E40AA1301A05804B00B66DF3 /* Images.xcassets */,
 				E40AA1321A05804B00B66DF3 /* LaunchScreen.xib */,
 				E40AA1271A05804B00B66DF3 /* Supporting Files */,
+				E40AA1871A0580DC00B66DF3 /* KeyboardAccessoryView.swift */,
 			);
 			path = NoteDash;
 			sourceTree = "<group>";
@@ -112,7 +226,80 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		E40AA14F1A05807800B66DF3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E40AA1501A05807800B66DF3 /* NotificationCenter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E40AA1521A05807800B66DF3 /* NoteDashToday */ = {
+			isa = PBXGroup;
+			children = (
+				E40AA1601A05807D00B66DF3 /* NoteDashToday.entitlements */,
+				E40AA1551A05807800B66DF3 /* TodayViewController.swift */,
+				E40AA1571A05807800B66DF3 /* MainInterface.storyboard */,
+				E40AA1531A05807800B66DF3 /* Supporting Files */,
+			);
+			path = NoteDashToday;
+			sourceTree = "<group>";
+		};
+		E40AA1531A05807800B66DF3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E40AA1541A05807800B66DF3 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E40AA1671A05809D00B66DF3 /* NoteDashCommon */ = {
+			isa = PBXGroup;
+			children = (
+				E40AA16A1A05809D00B66DF3 /* NoteDashCommon.h */,
+				E40AA1681A05809D00B66DF3 /* Supporting Files */,
+				E40AA1891A05810B00B66DF3 /* DataStore.swift */,
+			);
+			path = NoteDashCommon;
+			sourceTree = "<group>";
+		};
+		E40AA1681A05809D00B66DF3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E40AA1691A05809D00B66DF3 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E40AA1761A05809D00B66DF3 /* NoteDashCommonTests */ = {
+			isa = PBXGroup;
+			children = (
+				E40AA1791A05809D00B66DF3 /* NoteDashCommonTests.swift */,
+				E40AA1771A05809D00B66DF3 /* Supporting Files */,
+			);
+			path = NoteDashCommonTests;
+			sourceTree = "<group>";
+		};
+		E40AA1771A05809D00B66DF3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E40AA1781A05809D00B66DF3 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		E40AA1631A05809D00B66DF3 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E40AA16B1A05809D00B66DF3 /* NoteDashCommon.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		E40AA1231A05804B00B66DF3 /* NoteDash */ = {
@@ -122,10 +309,14 @@
 				E40AA1201A05804B00B66DF3 /* Sources */,
 				E40AA1211A05804B00B66DF3 /* Frameworks */,
 				E40AA1221A05804B00B66DF3 /* Resources */,
+				E40AA15F1A05807900B66DF3 /* Embed App Extensions */,
+				E40AA1821A05809D00B66DF3 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				E40AA15A1A05807800B66DF3 /* PBXTargetDependency */,
+				E40AA17C1A05809D00B66DF3 /* PBXTargetDependency */,
 			);
 			name = NoteDash;
 			productName = NoteDash;
@@ -150,6 +341,60 @@
 			productReference = E40AA1391A05804B00B66DF3 /* NoteDashTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		E40AA14D1A05807800B66DF3 /* NoteDashToday */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E40AA15C1A05807900B66DF3 /* Build configuration list for PBXNativeTarget "NoteDashToday" */;
+			buildPhases = (
+				E40AA14A1A05807800B66DF3 /* Sources */,
+				E40AA14B1A05807800B66DF3 /* Frameworks */,
+				E40AA14C1A05807800B66DF3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NoteDashToday;
+			productName = NoteDashToday;
+			productReference = E40AA14E1A05807800B66DF3 /* NoteDashToday.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		E40AA1651A05809D00B66DF3 /* NoteDashCommon */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E40AA17F1A05809D00B66DF3 /* Build configuration list for PBXNativeTarget "NoteDashCommon" */;
+			buildPhases = (
+				E40AA1611A05809D00B66DF3 /* Sources */,
+				E40AA1621A05809D00B66DF3 /* Frameworks */,
+				E40AA1631A05809D00B66DF3 /* Headers */,
+				E40AA1641A05809D00B66DF3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NoteDashCommon;
+			productName = NoteDashCommon;
+			productReference = E40AA1661A05809D00B66DF3 /* NoteDashCommon.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		E40AA16F1A05809D00B66DF3 /* NoteDashCommonTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E40AA1831A05809D00B66DF3 /* Build configuration list for PBXNativeTarget "NoteDashCommonTests" */;
+			buildPhases = (
+				E40AA16C1A05809D00B66DF3 /* Sources */,
+				E40AA16D1A05809D00B66DF3 /* Frameworks */,
+				E40AA16E1A05809D00B66DF3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E40AA1731A05809D00B66DF3 /* PBXTargetDependency */,
+				E40AA1751A05809D00B66DF3 /* PBXTargetDependency */,
+			);
+			name = NoteDashCommonTests;
+			productName = NoteDashCommonTests;
+			productReference = E40AA1701A05809D00B66DF3 /* NoteDashCommonTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -161,8 +406,31 @@
 				TargetAttributes = {
 					E40AA1231A05804B00B66DF3 = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = TAQ6T3VPLD;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					E40AA1381A05804B00B66DF3 = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = E40AA1231A05804B00B66DF3;
+					};
+					E40AA14D1A05807800B66DF3 = {
+						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = TAQ6T3VPLD;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					E40AA1651A05809D00B66DF3 = {
+						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = TAQ6T3VPLD;
+					};
+					E40AA16F1A05809D00B66DF3 = {
 						CreatedOnToolsVersion = 6.1;
 						TestTargetID = E40AA1231A05804B00B66DF3;
 					};
@@ -183,6 +451,9 @@
 			targets = (
 				E40AA1231A05804B00B66DF3 /* NoteDash */,
 				E40AA1381A05804B00B66DF3 /* NoteDashTests */,
+				E40AA14D1A05807800B66DF3 /* NoteDashToday */,
+				E40AA1651A05809D00B66DF3 /* NoteDashCommon */,
+				E40AA16F1A05809D00B66DF3 /* NoteDashCommonTests */,
 			);
 		};
 /* End PBXProject section */
@@ -205,6 +476,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E40AA14C1A05807800B66DF3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E40AA1581A05807800B66DF3 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E40AA1641A05809D00B66DF3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E40AA16E1A05809D00B66DF3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -213,6 +506,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E40AA12C1A05804B00B66DF3 /* ViewController.swift in Sources */,
+				E40AA1881A0580DC00B66DF3 /* KeyboardAccessoryView.swift in Sources */,
 				E40AA12A1A05804B00B66DF3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,6 +519,30 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E40AA14A1A05807800B66DF3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E40AA1561A05807800B66DF3 /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E40AA1611A05809D00B66DF3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E40AA18A1A05810B00B66DF3 /* DataStore.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E40AA16C1A05809D00B66DF3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E40AA17A1A05809D00B66DF3 /* NoteDashCommonTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -232,6 +550,26 @@
 			isa = PBXTargetDependency;
 			target = E40AA1231A05804B00B66DF3 /* NoteDash */;
 			targetProxy = E40AA13A1A05804B00B66DF3 /* PBXContainerItemProxy */;
+		};
+		E40AA15A1A05807800B66DF3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E40AA14D1A05807800B66DF3 /* NoteDashToday */;
+			targetProxy = E40AA1591A05807800B66DF3 /* PBXContainerItemProxy */;
+		};
+		E40AA1731A05809D00B66DF3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E40AA1651A05809D00B66DF3 /* NoteDashCommon */;
+			targetProxy = E40AA1721A05809D00B66DF3 /* PBXContainerItemProxy */;
+		};
+		E40AA1751A05809D00B66DF3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E40AA1231A05804B00B66DF3 /* NoteDash */;
+			targetProxy = E40AA1741A05809D00B66DF3 /* PBXContainerItemProxy */;
+		};
+		E40AA17C1A05809D00B66DF3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E40AA1651A05809D00B66DF3 /* NoteDashCommon */;
+			targetProxy = E40AA17B1A05809D00B66DF3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -336,9 +674,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NoteDash/NoteDash.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = NoteDash/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -346,9 +689,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = NoteDash/NoteDash.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = NoteDash/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -386,6 +734,119 @@
 			};
 			name = Release;
 		};
+		E40AA15D1A05807900B66DF3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = NoteDashToday/NoteDashToday.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = NoteDashToday/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		E40AA15E1A05807900B66DF3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = NoteDashToday/NoteDashToday.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = NoteDashToday/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		E40AA1801A05809D00B66DF3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = NoteDashCommon/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E40AA1811A05809D00B66DF3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = NoteDashCommon/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E40AA1841A05809D00B66DF3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = NoteDashCommonTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NoteDash.app/NoteDash";
+			};
+			name = Debug;
+		};
+		E40AA1851A05809D00B66DF3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = NoteDashCommonTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NoteDash.app/NoteDash";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -411,6 +872,30 @@
 			buildConfigurations = (
 				E40AA1471A05804B00B66DF3 /* Debug */,
 				E40AA1481A05804B00B66DF3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		E40AA15C1A05807900B66DF3 /* Build configuration list for PBXNativeTarget "NoteDashToday" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E40AA15D1A05807900B66DF3 /* Debug */,
+				E40AA15E1A05807900B66DF3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		E40AA17F1A05809D00B66DF3 /* Build configuration list for PBXNativeTarget "NoteDashCommon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E40AA1801A05809D00B66DF3 /* Debug */,
+				E40AA1811A05809D00B66DF3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		E40AA1831A05809D00B66DF3 /* Build configuration list for PBXNativeTarget "NoteDashCommonTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E40AA1841A05809D00B66DF3 /* Debug */,
+				E40AA1851A05809D00B66DF3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
