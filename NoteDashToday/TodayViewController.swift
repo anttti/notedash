@@ -34,7 +34,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     }
     
     func updateText() {
-        self.textLabel.text = DataStore.readDefaults()
+        self.textLabel.text = DataStore.readDefaultsForTarget(MessageTarget.Widget)
     }
     
     func onTap() {

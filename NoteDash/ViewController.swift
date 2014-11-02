@@ -14,32 +14,21 @@ class ViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var textView: UITextView!
     
+    // MARK: ViewController lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        textView.text = DataStore.readDefaults()
-        
-        if textView.text == DataStore.placeholderText() {
-            textView.textColor = UIColor.lightGrayColor()
-        }
-        
-        textView.alwaysBounceVertical = true
-        textView.delegate = self
-        textView.becomeFirstResponder()
-        
-        self.automaticallyAdjustsScrollViewInsets = false
-  
-        let logoImage = UIImage(named: "notedash-logo")
-        let logoImageView = UIImageView(image: logoImage)
-        navigationItem.titleView = logoImageView
+        setupTextView()
+        setupLogoView()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         let notificationCenter = NSNotificationCenter.defaultCenter()
-        notificationCenter.addObserver(self, selector: "handleKeyboardWillShowNotification:", name: UIKeyboardWillShowNotification, object: nil)
-        notificationCenter.addObserver(self, selector: "handleKeyboardWillHideNotification:", name: UIKeyboardWillHideNotification, object: nil)
+        notificationCenter.addObserver(self, selector: "keyboardDidMove:", name: UIKeyboardWillShowNotification, object: nil)
+        notificationCenter.addObserver(self, selector: "keyboardDidMove:", name: UIKeyboardWillHideNotification, object: nil)
     }
     
     override func viewDidDisappear(animated: Bool) {
@@ -50,13 +39,31 @@ class ViewController: UIViewController, UITextViewDelegate {
         notificationCenter.removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
     }
     
-    func handleKeyboardWillShowNotification(notification: NSNotification) {
-        keyboardDidMove(notification)
+    // MARK: UITextViewDelegate
+    
+    func textViewDidBeginEditing(textView: UITextView) {
+        let item = UIBarButtonItem(image: UIImage(named: "keyboard-down"), landscapeImagePhone: UIImage(named: "keyboard-down"), style: UIBarButtonItemStyle.Plain, target: self, action: "doneBarButtonItemTapped")
+        item.tintColor = UIColor.whiteColor()
+        navigationItem.setRightBarButtonItem(item, animated: true)
+        
+        if textView.text == DataStore.placeholderTextForTarget(MessageTarget.TextView) {
+            textView.text = ""
+            textView.textColor = UIColor.blackColor()
+        }
     }
     
-    func handleKeyboardWillHideNotification(notification: NSNotification) {
-        keyboardDidMove(notification)
+    func textViewDidEndEditing(textView: UITextView) {
+        if textView.text == "" {
+            textView.text = DataStore.placeholderTextForTarget(MessageTarget.TextView)
+            textView.textColor = UIColor.lightGrayColor()
+        }
     }
+    
+    func textViewDidChange(textView: UITextView) {
+        DataStore.writeDefaults(textView.text)
+    }
+    
+    // MARK: Custom handlers
     
     func keyboardDidMove(notification: NSNotification) {
         let userInfo = notification.userInfo!
@@ -75,7 +82,7 @@ class ViewController: UIViewController, UITextViewDelegate {
         
         UIView.animateWithDuration(animationDuration, delay: 0, options: .BeginFromCurrentState, animations: {
             self.view.layoutIfNeeded()
-        }, completion: nil)
+            }, completion: nil)
         
         let selectedRange = textView.selectedRange
         textView.scrollRangeToVisible(selectedRange)
@@ -86,26 +93,27 @@ class ViewController: UIViewController, UITextViewDelegate {
         navigationItem.setRightBarButtonItem(nil, animated: true)
     }
     
-    func textViewDidBeginEditing(textView: UITextView) {
-        let item = UIBarButtonItem(image: UIImage(named: "keyboard-down"), landscapeImagePhone: UIImage(named: "keyboard-down"), style: UIBarButtonItemStyle.Plain, target: self, action: "doneBarButtonItemTapped")
-        item.tintColor = UIColor.whiteColor()
-        navigationItem.setRightBarButtonItem(item, animated: true)
+    // MARK: UI setup
+    
+    func setupTextView() {
+        textView.text = DataStore.readDefaultsForTarget(MessageTarget.TextView)
         
-        if textView.text == DataStore.placeholderText() {
-            textView.text = ""
-            textView.textColor = UIColor.blackColor()
-        }
-    }
-    
-    func textViewDidEndEditing(textView: UITextView) {
-        if textView.text == "" {
-            textView.text = DataStore.placeholderText()
+        if textView.text == DataStore.placeholderTextForTarget(MessageTarget.TextView) {
             textView.textColor = UIColor.lightGrayColor()
+        } else {
+            textView.becomeFirstResponder()
         }
+        
+        textView.alwaysBounceVertical = true
+        textView.delegate = self
+        
+        self.automaticallyAdjustsScrollViewInsets = false
     }
     
-    func textViewDidChange(textView: UITextView) {
-        DataStore.writeDefaults(textView.text)
+    func setupLogoView() {
+        let logoImage = UIImage(named: "notedash-logo")
+        let logoImageView = UIImageView(image: logoImage)
+        navigationItem.titleView = logoImageView
     }
 }
 

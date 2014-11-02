@@ -8,12 +8,17 @@
 
 import UIKit
 
+public enum MessageTarget {
+    case Widget
+    case TextView
+}
+
 public class DataStore {
     public class func writeDefaults(str: String) {
         let defs = NSUserDefaults(suiteName: "group.alupark.NoteDash")
         if let defaults = defs {
-            if str == placeholderText() || str == "" {
-                defaults.setObject(widgetPlaceholderText(), forKey: userDefaultsKey())
+            if str == placeholderTextForTarget(MessageTarget.TextView) || str == "" {
+                defaults.setObject("", forKey: userDefaultsKey())
             } else {
                 defaults.setObject(str, forKey: userDefaultsKey())
             }
@@ -21,7 +26,7 @@ public class DataStore {
         }
     }
     
-    public class func readDefaults() -> String! {
+    public class func readDefaultsForTarget(target: MessageTarget) -> String! {
         let defs = NSUserDefaults(suiteName: "group.alupark.NoteDash")
         if let defaults = defs {
             if let str = defaults.objectForKey(userDefaultsKey()) as String? {
@@ -30,18 +35,21 @@ public class DataStore {
                 }
             }
         }
-        return placeholderText()
+        return placeholderTextForTarget(target)
     }
     
-    public class func placeholderText() -> String! {
-        return "Enable the NoteDash widget in your Notification Center and you'll see anything you type here appear in the widget!"
+    public class func placeholderTextForTarget(target: MessageTarget) -> String! {
+        switch target {
+            case .Widget:
+                return "Tap here to edit this message. You can write whatever you want and have a quick access to it anywhere, anytime!"
+            case .TextView:
+                return "Enable the NoteDash widget in your Notification Center and you'll see anything you type here appear in the widget!"
+            default:
+                return ""
+        }
     }
     
     private class func userDefaultsKey() -> String! {
         return "noteString"
-    }
-    
-    private class func widgetPlaceholderText() -> String! {
-        return "Tap here to edit this message. You can write whatever you want and have a quick access to it anywhere, anytime!"
     }
 }
