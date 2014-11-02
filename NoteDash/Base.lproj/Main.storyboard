@@ -32,9 +32,17 @@
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="u9y-st-xgN" secondAttribute="bottom" constant="8" id="buc-Ui-5T5"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="NoteDash" id="UYo-lM-8TG"/>
+                    <navigationItem key="navigationItem" title="NoteDash" id="UYo-lM-8TG">
+                        <barButtonItem key="rightBarButtonItem" image="keyboard-down" id="NSa-eW-DKx">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="onDismissKeyboardPressed:" destination="vXZ-lx-hvc" id="tYa-CT-pPy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="bottomConstraint" destination="buc-Ui-5T5" id="Tjf-IT-fKl"/>
+                        <outlet property="dismissKeyboardButton" destination="NSa-eW-DKx" id="hcq-Uc-eJg"/>
                         <outlet property="textView" destination="u9y-st-xgN" id="Tn6-Qb-5Iz"/>
                     </connections>
                 </viewController>
@@ -66,4 +74,7 @@
             <point key="canvasLocation" x="255" y="-356"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="keyboard-down" width="22" height="22"/>
+    </resources>
 </document>
