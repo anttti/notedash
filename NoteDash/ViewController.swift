@@ -18,6 +18,11 @@ class ViewController: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         
         textView.text = DataStore.readDefaults()
+        
+        if textView.text == DataStore.placeholderText() {
+            textView.textColor = UIColor.lightGrayColor()
+        }
+        
         textView.alwaysBounceVertical = true
         textView.delegate = self
         textView.becomeFirstResponder()
@@ -58,7 +63,6 @@ class ViewController: UIViewController, UITextViewDelegate {
         
         let animationDuration: NSTimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as NSNumber).doubleValue
         
-        // Convert the keyboard frame from screen to view coordinates.
         let keyboardScreenBeginFrame = (userInfo[UIKeyboardFrameBeginUserInfoKey] as NSValue).CGRectValue()
         let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as NSValue).CGRectValue()
         
@@ -77,20 +81,31 @@ class ViewController: UIViewController, UITextViewDelegate {
         textView.scrollRangeToVisible(selectedRange)
     }
     
-    func textViewDidBeginEditing(textView: UITextView) {
-        let item = UIBarButtonItem(image: UIImage(named: "keyboard-down"), landscapeImagePhone: UIImage(named: "keyboard-down"), style: UIBarButtonItemStyle.Plain, target: self, action: "doneBarButtonItemTapped")
-        item.tintColor = UIColor.whiteColor()
-        navigationItem.setRightBarButtonItem(item, animated: true)
-    }
-    
     func doneBarButtonItemTapped() {
         textView.resignFirstResponder()
         navigationItem.setRightBarButtonItem(nil, animated: true)
     }
     
-    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
-        DataStore.writeDefaults(self.textView.text + text)
-        return true
+    func textViewDidBeginEditing(textView: UITextView) {
+        let item = UIBarButtonItem(image: UIImage(named: "keyboard-down"), landscapeImagePhone: UIImage(named: "keyboard-down"), style: UIBarButtonItemStyle.Plain, target: self, action: "doneBarButtonItemTapped")
+        item.tintColor = UIColor.whiteColor()
+        navigationItem.setRightBarButtonItem(item, animated: true)
+        
+        if textView.text == DataStore.placeholderText() {
+            textView.text = ""
+            textView.textColor = UIColor.blackColor()
+        }
+    }
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        if textView.text == "" {
+            textView.text = DataStore.placeholderText()
+            textView.textColor = UIColor.lightGrayColor()
+        }
+    }
+    
+    func textViewDidChange(textView: UITextView) {
+        DataStore.writeDefaults(textView.text)
     }
 }
 
