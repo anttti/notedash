@@ -24,12 +24,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="GcN-lo-r42" secondAttribute="trailing" id="R4p-1f-e94"/>
                             <constraint firstItem="GcN-lo-r42" firstAttribute="leading" secondItem="S3S-Oj-5AN" secondAttribute="leadingMargin" id="oC9-gL-YVd"/>
                             <constraint firstItem="FKl-LY-JtV" firstAttribute="top" secondItem="GcN-lo-r42" secondAttribute="bottom" constant="8" id="rHA-pA-Zbl"/>
                             <constraint firstItem="GcN-lo-r42" firstAttribute="top" secondItem="Ft6-oW-KC0" secondAttribute="bottom" constant="8" id="uyc-AW-SDl"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Wrc-So-hbb" appends="YES" id="zOj-ue-Ynz"/>
+                        </connections>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -38,10 +42,12 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="37"/>
                     <connections>
+                        <outlet property="tapRecognizer" destination="Wrc-So-hbb" id="Knp-0w-h5p"/>
                         <outlet property="textLabel" destination="GcN-lo-r42" id="Ofa-pm-K0u"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Wrc-So-hbb"/>
             </objects>
             <point key="canvasLocation" x="516" y="285"/>
         </scene>

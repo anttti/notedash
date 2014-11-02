@@ -13,6 +13,7 @@ import NoteDashCommon
 class TodayViewController: UIViewController, NCWidgetProviding {
     
     @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet var tapRecognizer: UITapGestureRecognizer!
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -22,8 +23,10 @@ class TodayViewController: UIViewController, NCWidgetProviding {
             object: nil)
     }
     
-    func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets {
-        return UIEdgeInsetsMake(0, 42.0, 0, 8.0)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        updateText()
+        tapRecognizer.addTarget(self, action: "onTap")
     }
     
     func userDefaultsDidChange(notification: NSNotification) {
@@ -34,13 +37,15 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         self.textLabel.text = DataStore.readDefaults()
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        updateText()
+    func onTap() {
+        let url = NSURL(string: "alupark.notedash://")!
+        if let content = self.extensionContext {
+            content.openURL(url, completionHandler: nil)
+        }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets {
+        return UIEdgeInsetsMake(0, 42.0, 0, 8.0)
     }
     
     func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)!) {
