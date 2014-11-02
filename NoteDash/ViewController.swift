@@ -16,9 +16,13 @@ class ViewController: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         textView.text = DataStore.readDefaults()
+        textView.alwaysBounceVertical = true
         textView.delegate = self
         textView.inputAccessoryView = KeyboardAccessoryView()
+        textView.becomeFirstResponder()
+        
         self.automaticallyAdjustsScrollViewInsets = false
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardDidMove:", name: "APKeyboardMoved", object: nil)
@@ -37,10 +41,6 @@ class ViewController: UIViewController, UITextViewDelegate {
     func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
         DataStore.writeDefaults(self.textView.text + text)
         return true
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
     }
 }
 
