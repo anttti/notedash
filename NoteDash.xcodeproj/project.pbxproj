@@ -866,6 +866,7 @@
 				E40AA1451A05804B00B66DF3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E40AA1461A05804B00B66DF3 /* Build configuration list for PBXNativeTarget "NoteDashTests" */ = {
 			isa = XCConfigurationList;
@@ -874,6 +875,7 @@
 				E40AA1481A05804B00B66DF3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E40AA15C1A05807900B66DF3 /* Build configuration list for PBXNativeTarget "NoteDashToday" */ = {
 			isa = XCConfigurationList;
@@ -882,6 +884,7 @@
 				E40AA15E1A05807900B66DF3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E40AA17F1A05809D00B66DF3 /* Build configuration list for PBXNativeTarget "NoteDashCommon" */ = {
 			isa = XCConfigurationList;
@@ -890,6 +893,7 @@
 				E40AA1811A05809D00B66DF3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E40AA1831A05809D00B66DF3 /* Build configuration list for PBXNativeTarget "NoteDashCommonTests" */ = {
 			isa = XCConfigurationList;
@@ -898,6 +902,7 @@
 				E40AA1851A05809D00B66DF3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
