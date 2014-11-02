@@ -13,7 +13,6 @@ class ViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var textView: UITextView!
-    @IBOutlet weak var dismissKeyboardButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,31 +20,72 @@ class ViewController: UIViewController, UITextViewDelegate {
         textView.text = DataStore.readDefaults()
         textView.alwaysBounceVertical = true
         textView.delegate = self
-        textView.inputAccessoryView = KeyboardAccessoryView()
         textView.becomeFirstResponder()
         
         self.automaticallyAdjustsScrollViewInsets = false
-        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardDidMove:", name: "APKeyboardMoved", object: nil)
+  
+        let logoImage = UIImage(named: "notedash-logo")
+        let logoImageView = UIImageView(image: logoImage)
+        navigationItem.titleView = logoImageView
     }
     
-    @IBAction func onDismissKeyboardPressed(sender: AnyObject) {
-        textView.resignFirstResponder()
-        dismissKeyboardButton.enabled = false
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        notificationCenter.addObserver(self, selector: "handleKeyboardWillShowNotification:", name: UIKeyboardWillShowNotification, object: nil)
+        notificationCenter.addObserver(self, selector: "handleKeyboardWillHideNotification:", name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        notificationCenter.removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        notificationCenter.removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    func handleKeyboardWillShowNotification(notification: NSNotification) {
+        keyboardDidMove(notification)
+    }
+    
+    func handleKeyboardWillHideNotification(notification: NSNotification) {
+        keyboardDidMove(notification)
     }
     
     func keyboardDidMove(notification: NSNotification) {
-        let view = notification.object as UIView
-        let rect = view.convertRect(view.bounds, toView: self.view)
+        let userInfo = notification.userInfo!
         
-        let bottom = self.view.bounds.size.height - rect.origin.y
-        self.bottomConstraint.constant = bottom + 8;
+        let animationDuration: NSTimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as NSNumber).doubleValue
         
-        self.view.layoutIfNeeded()
+        // Convert the keyboard frame from screen to view coordinates.
+        let keyboardScreenBeginFrame = (userInfo[UIKeyboardFrameBeginUserInfoKey] as NSValue).CGRectValue()
+        let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as NSValue).CGRectValue()
+        
+        let keyboardViewBeginFrame = view.convertRect(keyboardScreenBeginFrame, fromView: view.window)
+        let keyboardViewEndFrame = view.convertRect(keyboardScreenEndFrame, fromView: view.window)
+        let originDelta = keyboardViewEndFrame.origin.y - keyboardViewBeginFrame.origin.y
+        bottomConstraint.constant -= originDelta
+        
+        view.setNeedsUpdateConstraints()
+        
+        UIView.animateWithDuration(animationDuration, delay: 0, options: .BeginFromCurrentState, animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)
+        
+        let selectedRange = textView.selectedRange
+        textView.scrollRangeToVisible(selectedRange)
     }
     
     func textViewDidBeginEditing(textView: UITextView) {
-        dismissKeyboardButton.enabled = true
+        let item = UIBarButtonItem(image: UIImage(named: "keyboard-down"), landscapeImagePhone: UIImage(named: "keyboard-down"), style: UIBarButtonItemStyle.Plain, target: self, action: "doneBarButtonItemTapped")
+        item.tintColor = UIColor.whiteColor()
+        navigationItem.setRightBarButtonItem(item, animated: true)
+    }
+    
+    func doneBarButtonItemTapped() {
+        textView.resignFirstResponder()
+        navigationItem.setRightBarButtonItem(nil, animated: true)
     }
     
     func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {

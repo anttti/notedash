@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--NoteDash-->
+        <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="NoteDash" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="u9y-st-xgN">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u9y-st-xgN">
                                 <rect key="frame" x="16" y="72" width="568" height="520"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -32,17 +32,9 @@
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="u9y-st-xgN" secondAttribute="bottom" constant="8" id="buc-Ui-5T5"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="NoteDash" id="UYo-lM-8TG">
-                        <barButtonItem key="rightBarButtonItem" image="keyboard-down" id="NSa-eW-DKx">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="onDismissKeyboardPressed:" destination="vXZ-lx-hvc" id="tYa-CT-pPy"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="UYo-lM-8TG"/>
                     <connections>
                         <outlet property="bottomConstraint" destination="buc-Ui-5T5" id="Tjf-IT-fKl"/>
-                        <outlet property="dismissKeyboardButton" destination="NSa-eW-DKx" id="hcq-Uc-eJg"/>
                         <outlet property="textView" destination="u9y-st-xgN" id="Tn6-Qb-5Iz"/>
                     </connections>
                 </viewController>
@@ -74,7 +66,4 @@
             <point key="canvasLocation" x="255" y="-356"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="keyboard-down" width="22" height="22"/>
-    </resources>
 </document>
