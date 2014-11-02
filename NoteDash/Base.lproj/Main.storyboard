@@ -40,7 +40,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1182" y="-174"/>
+            <point key="canvasLocation" x="944" y="-356"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZiA-gL-TZA">
@@ -50,6 +50,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8fL-Io-yBC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.94258308410644531" green="0.27962669730186462" blue="0.72650712728500366" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.94258308410644531" green="0.27962669730186462" blue="0.72650712728500366" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
