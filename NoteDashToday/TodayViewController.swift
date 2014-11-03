@@ -1,6 +1,6 @@
 //
 //  TodayViewController.swift
-//  FrameworkToday
+//  NoteDashToday
 //
 //  Created by Antti Mattila on 1.11.2014.
 //  Copyright (c) 2014 Alupark. All rights reserved.

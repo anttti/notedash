@@ -1,6 +1,6 @@
 //
 //  TestClass.swift
-//  FrameworkTest
+//  NoteDashCommon
 //
 //  Created by Antti Mattila on 1.11.2014.
 //  Copyright (c) 2014 Alupark. All rights reserved.
@@ -14,8 +14,10 @@ public enum MessageTarget {
 }
 
 public class DataStore {
+    
     public class func writeDefaults(str: String) {
-        let defs = NSUserDefaults(suiteName: "group.alupark.NoteDash")
+        let defs = NSUserDefaults(suiteName: suiteName())
+        
         if let defaults = defs {
             if str == placeholderTextForTarget(MessageTarget.TextView) || str == "" {
                 defaults.setObject("", forKey: userDefaultsKey())
@@ -27,14 +29,14 @@ public class DataStore {
     }
     
     public class func readDefaultsForTarget(target: MessageTarget) -> String! {
-        let defs = NSUserDefaults(suiteName: "group.alupark.NoteDash")
-        if let defaults = defs {
-            if let str = defaults.objectForKey(userDefaultsKey()) as String? {
-                if str != "" {
-                    return str
-                }
+        let defs = NSUserDefaults(suiteName: suiteName())
+        
+        if let str = defs?.objectForKey(userDefaultsKey()) as String? {
+            if str != "" {
+                return str
             }
         }
+
         return placeholderTextForTarget(target)
     }
     
@@ -47,6 +49,12 @@ public class DataStore {
             default:
                 return ""
         }
+    }
+    
+    // These are funcs until Swift supports static class lets
+    
+    private class func suiteName() -> String! {
+        return "group.alupark.NoteDash"
     }
     
     private class func userDefaultsKey() -> String! {
