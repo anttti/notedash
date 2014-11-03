@@ -76,13 +76,15 @@ class ViewController: UIViewController, UITextViewDelegate {
         let keyboardViewBeginFrame = view.convertRect(keyboardScreenBeginFrame, fromView: view.window)
         let keyboardViewEndFrame = view.convertRect(keyboardScreenEndFrame, fromView: view.window)
         let originDelta = keyboardViewEndFrame.origin.y - keyboardViewBeginFrame.origin.y
+        
+        // Adjust the UITextView's bottom constraint to accommodate the keyboard
         bottomConstraint.constant -= originDelta
         
         view.setNeedsUpdateConstraints()
         
         UIView.animateWithDuration(animationDuration, delay: 0, options: .BeginFromCurrentState, animations: {
             self.view.layoutIfNeeded()
-            }, completion: nil)
+        }, completion: nil)
         
         let selectedRange = textView.selectedRange
         textView.scrollRangeToVisible(selectedRange)
