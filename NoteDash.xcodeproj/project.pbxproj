@@ -23,7 +23,6 @@
 		E40AA17D1A05809D00B66DF3 /* NoteDashCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E40AA1661A05809D00B66DF3 /* NoteDashCommon.framework */; };
 		E40AA17E1A05809D00B66DF3 /* NoteDashCommon.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E40AA1661A05809D00B66DF3 /* NoteDashCommon.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E40AA1861A0580B600B66DF3 /* NoteDashCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E40AA1661A05809D00B66DF3 /* NoteDashCommon.framework */; };
-		E40AA1881A0580DC00B66DF3 /* KeyboardAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40AA1871A0580DC00B66DF3 /* KeyboardAccessoryView.swift */; };
 		E40AA18A1A05810B00B66DF3 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40AA1891A05810B00B66DF3 /* DataStore.swift */; };
 /* End PBXBuildFile section */
 
@@ -114,7 +113,6 @@
 		E40AA1701A05809D00B66DF3 /* NoteDashCommonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NoteDashCommonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E40AA1781A05809D00B66DF3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E40AA1791A05809D00B66DF3 /* NoteDashCommonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDashCommonTests.swift; sourceTree = "<group>"; };
-		E40AA1871A0580DC00B66DF3 /* KeyboardAccessoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardAccessoryView.swift; sourceTree = "<group>"; };
 		E40AA1891A05810B00B66DF3 /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -196,7 +194,6 @@
 				E40AA1301A05804B00B66DF3 /* Images.xcassets */,
 				E40AA1321A05804B00B66DF3 /* LaunchScreen.xib */,
 				E40AA1271A05804B00B66DF3 /* Supporting Files */,
-				E40AA1871A0580DC00B66DF3 /* KeyboardAccessoryView.swift */,
 			);
 			path = NoteDash;
 			sourceTree = "<group>";
@@ -506,7 +503,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E40AA12C1A05804B00B66DF3 /* ViewController.swift in Sources */,
-				E40AA1881A0580DC00B66DF3 /* KeyboardAccessoryView.swift in Sources */,
 				E40AA12A1A05804B00B66DF3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
