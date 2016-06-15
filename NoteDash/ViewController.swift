@@ -23,58 +23,58 @@ class ViewController: UIViewController, UITextViewDelegate {
         setupLogoView()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let notificationCenter = NSNotificationCenter.defaultCenter()
-        notificationCenter.addObserver(self, selector: "keyboardDidMove:", name: UIKeyboardWillShowNotification, object: nil)
-        notificationCenter.addObserver(self, selector: "keyboardDidMove:", name: UIKeyboardWillHideNotification, object: nil)
+        let notificationCenter = NotificationCenter.default()
+        notificationCenter.addObserver(self, selector: #selector(ViewController.keyboardDidMove(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(ViewController.keyboardDidMove(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
-        let notificationCenter = NSNotificationCenter.defaultCenter()
-        notificationCenter.removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
-        notificationCenter.removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+        let notificationCenter = NotificationCenter.default()
+        notificationCenter.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        notificationCenter.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     // MARK: UITextViewDelegate
     
-    func textViewDidBeginEditing(textView: UITextView) {
-        let item = UIBarButtonItem(image: UIImage(named: "keyboard-down"), landscapeImagePhone: UIImage(named: "keyboard-down"), style: UIBarButtonItemStyle.Plain, target: self, action: "doneBarButtonItemTapped")
-        item.tintColor = UIColor.whiteColor()
-        navigationItem.setRightBarButtonItem(item, animated: true)
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        let item = UIBarButtonItem(image: UIImage(named: "keyboard-down"), landscapeImagePhone: UIImage(named: "keyboard-down"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(ViewController.doneBarButtonItemTapped))
+        item.tintColor = UIColor.white()
+        navigationItem.setRightBarButton(item, animated: true)
         
-        if textView.text == DataStore.placeholderTextForTarget(MessageTarget.TextView) {
+        if textView.text == DataStore.placeholderTextForTarget(MessageTarget.textView) {
             textView.text = ""
-            textView.textColor = UIColor.blackColor()
+            textView.textColor = UIColor.black()
         }
     }
     
-    func textViewDidEndEditing(textView: UITextView) {
+    func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text == "" {
-            textView.text = DataStore.placeholderTextForTarget(MessageTarget.TextView)
-            textView.textColor = UIColor.lightGrayColor()
+            textView.text = DataStore.placeholderTextForTarget(MessageTarget.textView)
+            textView.textColor = UIColor.lightGray()
         }
     }
     
-    func textViewDidChange(textView: UITextView) {
+    func textViewDidChange(_ textView: UITextView) {
         DataStore.writeDefaults(textView.text)
     }
     
     // MARK: Custom handlers
     
-    func keyboardDidMove(notification: NSNotification) {
-        let userInfo = notification.userInfo!
+    func keyboardDidMove(_ notification: Notification) {
+        let userInfo = (notification as NSNotification).userInfo!
         
-        let animationDuration: NSTimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as NSNumber).doubleValue
+        let animationDuration: TimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
         
-        let keyboardScreenBeginFrame = (userInfo[UIKeyboardFrameBeginUserInfoKey] as NSValue).CGRectValue()
-        let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as NSValue).CGRectValue()
+        let keyboardScreenBeginFrame = (userInfo[UIKeyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue()
+        let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue()
         
-        let keyboardViewBeginFrame = view.convertRect(keyboardScreenBeginFrame, fromView: view.window)
-        let keyboardViewEndFrame = view.convertRect(keyboardScreenEndFrame, fromView: view.window)
+        let keyboardViewBeginFrame = view.convert(keyboardScreenBeginFrame, from: view.window)
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
         let originDelta = keyboardViewEndFrame.origin.y - keyboardViewBeginFrame.origin.y
         
         // Adjust the UITextView's bottom constraint to accommodate the keyboard
@@ -82,7 +82,7 @@ class ViewController: UIViewController, UITextViewDelegate {
         
         view.setNeedsUpdateConstraints()
         
-        UIView.animateWithDuration(animationDuration, delay: 0, options: .BeginFromCurrentState, animations: {
+        UIView.animate(withDuration: animationDuration, delay: 0, options: .beginFromCurrentState, animations: {
             self.view.layoutIfNeeded()
         }, completion: nil)
         
@@ -92,16 +92,16 @@ class ViewController: UIViewController, UITextViewDelegate {
     
     func doneBarButtonItemTapped() {
         textView.resignFirstResponder()
-        navigationItem.setRightBarButtonItem(nil, animated: true)
+        navigationItem.setRightBarButton(nil, animated: true)
     }
     
     // MARK: UI setup
     
     func setupTextView() {
-        textView.text = DataStore.readDefaultsForTarget(MessageTarget.TextView)
+        textView.text = DataStore.readDefaultsForTarget(MessageTarget.textView)
         
-        if textView.text == DataStore.placeholderTextForTarget(MessageTarget.TextView) {
-            textView.textColor = UIColor.lightGrayColor()
+        if textView.text == DataStore.placeholderTextForTarget(MessageTarget.textView) {
+            textView.textColor = UIColor.lightGray()
         } else {
             textView.becomeFirstResponder()
         }

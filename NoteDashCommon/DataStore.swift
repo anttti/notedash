@@ -9,29 +9,29 @@
 import UIKit
 
 public enum MessageTarget {
-    case Widget
-    case TextView
+    case widget
+    case textView
 }
 
 public class DataStore {
     
-    public class func writeDefaults(str: String) {
-        let defs = NSUserDefaults(suiteName: suiteName())
+    public class func writeDefaults(_ str: String) {
+        let defs = UserDefaults(suiteName: suiteName())
         
         if let defaults = defs {
-            if str == placeholderTextForTarget(MessageTarget.TextView) || str == "" {
-                defaults.setObject("", forKey: userDefaultsKey())
+            if str == placeholderTextForTarget(MessageTarget.textView) || str == "" {
+                defaults.set("", forKey: userDefaultsKey())
             } else {
-                defaults.setObject(str, forKey: userDefaultsKey())
+                defaults.set(str, forKey: userDefaultsKey())
             }
             defaults.synchronize()
         }
     }
     
-    public class func readDefaultsForTarget(target: MessageTarget) -> String! {
-        let defs = NSUserDefaults(suiteName: suiteName())
+    public class func readDefaultsForTarget(_ target: MessageTarget) -> String! {
+        let defs = UserDefaults(suiteName: suiteName())
         
-        if let str = defs?.objectForKey(userDefaultsKey()) as String? {
+        if let str = defs?.object(forKey: userDefaultsKey()) as! String? {
             if str != "" {
                 return str
             }
@@ -40,14 +40,12 @@ public class DataStore {
         return placeholderTextForTarget(target)
     }
     
-    public class func placeholderTextForTarget(target: MessageTarget) -> String! {
+    public class func placeholderTextForTarget(_ target: MessageTarget) -> String! {
         switch target {
-            case .Widget:
+            case .widget:
                 return "Tap here to edit this message. You can write whatever you want and have a quick access to it anywhere, anytime!"
-            case .TextView:
+            case .textView:
                 return "Enable the NoteDash widget in your Notification Center and you'll see anything you type here appear in the widget!"
-            default:
-                return ""
         }
     }
     
